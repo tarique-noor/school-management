@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="utf-8">
+<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/welcome.css}" />
+
+<title>Welcome</title>
+</head>
+
+<body>
+
+	<div class="container register">
+		<div class="row">
+			<!-- <p style="text-align: center"
+				th:text="'Welcome to my School Management Application'"
+				class="funny" /> -->
+			<div class="col-md-3 register-left">
+				<img th:src="@{/images/logo_white.png}"/>
+				<h3>Welcome</h3>
+				<h5>School Management Application!</h5><br />
+				<div>
+					<a th:href="@{/registration/openregister}"
+						class="btn btn-info btn-sm mb-3">Student Registration 0</a>
+				</div>
+				<div>
+					<a th:href="@{/registration/opensecond}"
+						class="btn btn-info btn-sm mb-3">Student Second Page </a>
+				</div>
+			</div>
+			<div class="col-md-9 text-center register-right">
+				<table class="table mx-auto ">
+
+					<thead>
+						<tr>
+							<th>First Name</th>
+							<th>Mobile Number</th>
+							<th>Email</th>
+							<!-- <th>City</th> -->
+							<th>Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="temp : ${teacher}">
+							<td th:text="${temp.firstName}" />
+							<td th:text="${temp.mobile}" />
+							<td th:text="${temp.email}" />
+							<!-- <td th:text="${temp.addresses[0].city}" /> -->
+							<td>
+								<a th:href="@{showUpdate(ID=${temp.id})}" class="btn btn-info btn-sm"> Update</a>
+								<a th:href="@{delete(ID=${temp.id})}" class="btn btn-danger btn-sm"> Delete</a>
+								<a th:href="@{toAddress(ID=${temp.id})}" class="btn btn-secondary btn-sm"> Address</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

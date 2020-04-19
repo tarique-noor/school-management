@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Register Teacher</title>
+<meta charset="utf-8">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/display-address.css}" />
+
+</head>
+
+<body>
+
+	<div class="container register">
+		<div class="row">
+			
+			<div class="col-md-3 register-left">
+				<!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" /> -->
+				<img th:src="@{/images/logo_white.png}"/>
+				<h3>Welcome</h3>
+				<p>You are 30 seconds away from earning your own existence!</p>
+				<form role="form" action="#" th:action="@{openAddressForm}" th:object="${teacher}" method="POST">
+					<input type="hidden" name="id" th:field="*{id}" >
+					<input type="submit" value="Update Address" /><br />
+				</form>
+			</div>
+			<div class="col-md-9 text-center register-right">
+			<div class="row">
+				<div class="col-md-4 text-center">
+					<strong th:text="${name}"></strong><br> 
+					<p th:text="${house}">
+					<!-- <p th:text="${nearby}"></p> -->
+					<p th:text="${mohalla}">
+					<p th:text="${city}">
+					<p th:text="${state}">
+					<abbr title="Mobile">Mobile</abbr>
+					<p th:text="${mobile}">
+				</div>
+				<!-- <div class="col-md-4 text-center">
+					<address>
+						<strong>Example Inc.</strong><br> 1234 Example Street<br>
+						Antartica, Example 0987<br> <abbr title="Phone">P:</abbr>
+						(123) 456-7890
+					</address>
+					<address>
+						<strong>Full Name</strong><br> <a href="mailto:#">exam.ple@example.com</a>
+					</address>
+				</div> -->
+				</div>
+			</div>
+		</div>
+		<a th:href="@{/}">Back to Home</a>
+	</div>
+</body>
+
+</html>

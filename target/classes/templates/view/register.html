@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" th:href="@{/css/register.css}" />
+
+<title>Register Teacher</title>
+</head>
+
+<body>
+
+	<div class="container register">
+		<div class="row">
+			<div class="col-md-3 register-left">
+				<!-- <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" /> -->
+				<img th:src="@{/images/logo_white.png}"/>
+				<h3>Welcome</h3>
+				<p>You are 30 seconds away from earning your own existence!</p>
+				<input type="submit" name="" value="Login" /><br />
+			</div>
+			<div class="col-md-9 register-right">
+				
+				<div class="tab-content">
+					
+						<h3 class="register-heading">Detail as a Teacher</h3>
+						<form role="form" action="#" th:action="@{saveTeacher}" th:object="${teacher}"
+			                method="POST">
+						<div class="row register-form">
+						
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" th:field="*{firstName}" class="form-control"
+										placeholder="First Name *" />
+								</div>
+								<div class="form-group">
+									<input type="text" th:field="*{lastName}" class="form-control"
+										placeholder="Last Name *" />
+								</div>
+								<div class="form-group">
+									<input type="email" th:field="*{email}" class="form-control"
+										placeholder="Email *" />
+								</div>
+								<div class="form-group">
+									<input type="text" th:field="*{mobile}" minlength="10"
+										maxlength="10" class="form-control"
+										placeholder="Mobile Number *" />
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+									<select th:field="*{gender}" class="form-control">
+										<option th:value="'Male'" th:text="'Male'"></option>
+										<option th:value="'Female'" th:text="'Female'"></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<select th:field="*{serviceType}" class="form-control">
+										<option th:value="'Permanent'" th:text="'Permanent'"></option>
+										<option th:value="'Contract Based'" th:text="'Contract Based'"></option>
+										<option th:value="'Guest Teacher'" th:text="'Guest Teacher'"></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input type="text" th:field="*{addresses[0].city}" class="form-control"
+										placeholder="Your City *" />
+								</div>
+								<div class="form-group">
+									<input type="text" th:field="*{addresses[0].pinCode}" minlength="6"
+										maxlength="6" class="form-control"
+										placeholder="Pincode Number *" />
+								</div>
+								<input type="submit" class="btnRegister" value="Register" />
+							</div>
+							</div>
+							</form>
+						
+	<!-- fffgffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff -->				
+					
+						<!-- <h3 class="register-heading">Apply as a Hirer</h3>
+						<form role="form" action="#" th:action="@{saveTeacher}" th:object="${teacher}"
+			                method="POST">
+						<div class="row register-form">
+						
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="text" class="form-control"
+										placeholder="First Name *" value="" />
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control"
+										placeholder="Last Name *" value="" />
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="Email *"
+										value="" />
+								</div>
+								<div class="form-group">
+									<input type="text" maxlength="10" minlength="10"
+										class="form-control" placeholder="Phone *" value="" />
+								</div>
+
+
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<input type="password" class="form-control"
+										placeholder="Password *" value="" />
+								</div>
+								<div class="form-group">
+									<input type="password" class="form-control"
+										placeholder="Confirm Password *" value="" />
+								</div>
+								<div class="form-group">
+									<select class="form-control">
+										<option class="hidden" selected disabled>Please
+											select your Sequrity Question</option>
+										<option>What is your Birthdate?</option>
+										<option>What is Your old Phone Number</option>
+										<option>What is your Pet Name?</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="`Answer *"
+										value="" />
+								</div>
+								<input type="submit" class="btnRegister" value="Register" />
+							</div>
+							
+						</div>
+					</form> -->
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+
+
+
+</html>

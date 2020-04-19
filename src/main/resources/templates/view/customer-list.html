@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+	<title>Thymeleaf Demo</title>
+</head>
+
+<body>
+	
+	<div class="container">
+	
+	<center><h3>Customers Details</h3></center>
+	
+	<a th:href="@{showform}"
+		class="btn btn-primary btn-sm mb-3">
+		Add Customer
+	</a>
+	
+	<table  class="table table-bordered table-striped">
+	
+		<thead class="thead-dark">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="temp : ${customers}">
+				<td th:text="${temp.firstName}" />
+				<td th:text="${temp.lastName}" />
+				<td th:text="${temp.email}" />	
+				<td>
+					<a th:href="@{showUpdate(cusomerID=${temp.id})}"
+					class="btn btn-info btn-sm">
+					Update</a>
+					<a th:href="@{delete(cusomerID=${temp.id})}"
+					class="btn btn-danger btn-sm">
+					Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	
+	</table>
+	</div>
+
+</body>
+
+</html>
+
+
+
+
+
+
